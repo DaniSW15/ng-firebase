@@ -1,0 +1,12 @@
+<section class="mx-auto w-full max-w-screen-lg">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">
+        <a routerLink="/tasks/new">Create Task</a>
+    </button>
+    @if (tasksService.loading()) {
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-white-900"></div>
+        </div>
+    } @else {
+        <app-table [tasks]="tasksService.getTasks()" />
+    }
+</section>

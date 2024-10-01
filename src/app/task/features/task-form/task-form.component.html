@@ -1,0 +1,27 @@
+<section class="mx-auto w-full max-w-screen-lg">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">
+        <a routerLink="/tasks">Back</a>
+    </button>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+                Title
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="title" id="title" type="text" placeholder="Title">
+        </div>
+        <div class="mb-4">
+            <input type="checkbox" formControlName="completed" id="completed" class="form-checkbox h-5 w-5 text-blue-600">
+            <label class="text-gray-700 text-sm font-bold mb-2" for="completed">
+                Completed
+            </label>
+        </div>
+        <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                {{
+                    loading() ? 'Loading...' : 'Save'
+                }}
+            </button>
+        </div>
+    </form>
+</section>
